@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{59d30a35-5a5c-4354-a3fe-770c6d121856}</ProjectGuid>
+    <ProjectGuid>{f1f2e19d-0507-48b0-bbe4-0b0950b7da62}</ProjectGuid>
     <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
     <Name>Monitor.Architecture</Name>
     <RootNamespace>Monitor.Architecture</RootNamespace>
@@ -22,37 +22,28 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
-    <Content Include="ModelDefinition\Package_0709.uml">
+    <Content Include="ModelDefinition\Package1_0809.uml">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Templates\ClassTemplate.t4">
+    <Content Include="ModelDefinition\Package1_0810.uml">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Templates\CSharpCommentHelpers.t4">
+    <Content Include="ModelDefinition\Package_0809.uml">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Templates\CSharpHelpers.t4">
+    <Content Include="ModelDefinition\Package_0810.uml">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Templates\CSharpStereotypeHelpers.t4">
+    <Content Include="UMLClassDiagram.classdiagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Templates\EnumTemplate.t4">
+    <Content Include="UMLClassDiagram.classdiagram.layout">
       <SubType>Content</SubType>
-    </Content>
-    <Content Include="Templates\InterfaceTemplate.t4">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Templates\StructTemplate.t4">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Templates\TemplateHeader.t4">
-      <SubType>Content</SubType>
+      <DependentUpon>UMLClassDiagram.classdiagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\Monitor.Architecture.uml">
       <SubType>Content</SubType>
     </Content>
-    <Folder Include="Templates" />
   </ItemGroup>
 </Project>

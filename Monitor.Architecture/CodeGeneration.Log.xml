@@ -6,25 +6,17 @@
   <MessageClass Name="Error" Label="Error" Option="Show errors" />
   <MessageClass Name="Property" Label="Property" Option="Show metadata" />
   <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
-  <Message Timestamp="2014-03-08T08:04:15" Importance="High" Text="Code generation or text transformation started." />
-  <Message Timestamp="2014-03-08T08:04:15" Importance="Diagnostic" Text="Name = InterfaceTemplate" />
-  <Message Timestamp="2014-03-08T08:04:15" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2014-03-08T08:04:15" Importance="Diagnostic" Text="ProjectPath = ..\Monitor.ArchitectureLib\Monitor.ArchitectureLib.csproj" />
-  <Message Timestamp="2014-03-08T08:04:15" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
-  <Message Timestamp="2014-03-08T08:04:15" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2014-03-08T08:04:15" Importance="Diagnostic" Text="TemplateFilePath = .\Templates\InterfaceTemplate.t4" />
-  <Message Timestamp="2014-03-08T08:04:15" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Projects\Prototypes\Monitor\Monitor.Architecture\Templates\InterfaceTemplate.t4" />
-  <Message Timestamp="2014-03-08T08:04:15" Importance="Medium" Text="Monitor.Architecture::Monitor.Core.Domain::IMonitoredEvent's Text Template Binding: 'InterfaceTemplate' will apply InterfaceTemplate.t4 to: 'Monitor.Architecture::Monitor.Core.Domain::IMonitoredEvent' -  (Interface) " />
-  <Message Timestamp="2014-03-08T08:04:16" Importance="Medium" Text="'Monitor.Architecture::Monitor.Core.Domain::IMonitoredEvent' -  (Interface) : success (file created) - C:\Projects\Prototypes\Monitor\Monitor.ArchitectureLib\GeneratedCode\Monitor.Core.Domain\IMonitoredEvent.cs" />
-  <Message Timestamp="2014-03-08T08:04:16" Importance="Diagnostic" Text="Name = PackageTemplate" />
-  <Message Timestamp="2014-03-08T08:04:16" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2014-03-08T08:04:16" Importance="Diagnostic" Text="ProjectPath = ..\Monitor.ArchitectureLib\Monitor.ArchitectureLib.csproj" />
-  <Message Timestamp="2014-03-08T08:04:16" Importance="Diagnostic" Text="TargetDirectory = ..\..\Monitor.Core.Domain\{PackageStructure}" />
-  <Message Timestamp="2014-03-08T08:04:16" Importance="Diagnostic" Text="TargetName = Monitor.Core.Domain" />
-  <Message Timestamp="2014-03-08T08:04:16" Importance="Diagnostic" Text="TemplateFilePath = " />
-  <Message Timestamp="2014-03-08T08:04:16" Importance="Diagnostic" Text="ResolvedTemplateFilePath = " />
-  <Message Timestamp="2014-03-08T08:04:16" Importance="Medium" Text="Monitor.Architecture::Monitor.Core.Domain's Text Template Binding: 'PackageTemplate' will apply  to: 'Monitor.Architecture::Monitor.Core.Domain::IMonitoredEvent' -  (Interface) " />
-  <Error Timestamp="2014-03-08T08:04:16" Importance="High" Text="The following Template File Path property for 'Monitor.Architecture::Monitor.Core.Domain::IMonitoredEvent' -  (Interface) does not exist: " />
-  <Message Timestamp="2014-03-08T08:04:16" Importance="Diagnostic" Text="'Monitor.Architecture::Monitor.Core.Domain::IMonitoredEvent' -  (Interface): no file generated because the 'AppliesToElement' method of the template '' evaluated to false." />
-  <Message Timestamp="2014-03-08T08:04:16" Importance="High" Text="Code generation complete. Errors: 1. Warnings: 0." />
+  <Message Timestamp="2014-03-08T08:13:06" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2014-03-08T08:13:06" Importance="Diagnostic" Text="Name = InterfaceTemplate" />
+  <Message Timestamp="2014-03-08T08:13:06" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-03-08T08:13:06" Importance="Diagnostic" Text="ProjectPath = ..\Monitor.Core\Monitor.Core.csproj" />
+  <Message Timestamp="2014-03-08T08:13:06" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-03-08T08:13:06" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-03-08T08:13:06" Importance="Diagnostic" Text="TemplateFilePath = ..\Templates\InterfaceTemplate.t4" />
+  <Message Timestamp="2014-03-08T08:13:06" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Projects\Prototypes\Monitor\Templates\InterfaceTemplate.t4" />
+  <Message Timestamp="2014-03-08T08:13:06" Importance="Medium" Text="Monitor.Architecture::Model.Core.Domain::IMonitoredEvent's Text Template Binding: 'InterfaceTemplate' will apply InterfaceTemplate.t4 to: 'Monitor.Architecture::Model.Core.Domain::IMonitoredEvent' -  (Interface) " />
+  <Message Timestamp="2014-03-08T08:13:07" Importance="Medium" Text="'Monitor.Architecture::Model.Core.Domain::IMonitoredEvent' -  (Interface) : success (file created) - C:\Projects\Prototypes\Monitor\Monitor.Core\GeneratedCode\Model.Core.Domain\IMonitoredEvent.cs" />
+  <Message Timestamp="2014-03-08T08:13:08" Importance="Diagnostic" Text="The selection included 1 elements which were not bound to a template." />
+  <Message Timestamp="2014-03-08T08:13:08" Importance="Diagnostic" Text="'Monitor.Architecture::Model.Core.Domain' -  (Package): no bound template." />
+  <Message Timestamp="2014-03-08T08:13:08" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
 </Log>
