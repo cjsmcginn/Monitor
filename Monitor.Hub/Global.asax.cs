@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,8 @@ namespace Monitor.Hub
         protected void Application_Start(object sender, EventArgs e)
         {
             Broadcaster.InitializeHub();
+            //create single hub service
+            var s = ServiceFactory.GetHubService();
         }
 
         protected void Session_Start(object sender, EventArgs e)

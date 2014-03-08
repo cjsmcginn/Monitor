@@ -11,7 +11,7 @@ namespace Monitor.Hub
         public Guid GetMonitor()
         {
             var monitor = new EventMonitor {Id = Guid.NewGuid()};
-            EventMonitors.ToList().Add(monitor);
+            EventMonitors.Add(monitor);
             return monitor.Id;
         }
 
@@ -19,10 +19,10 @@ namespace Monitor.Hub
         {
             var response = new MonitoredEventResponse();
 
-            var targetMonitor = EventMonitors.ToList().SingleOrDefault(x => x.Id == request.EventMonitorId);
+            var targetMonitor = EventMonitors.SingleOrDefault(x => x.Id == request.EventMonitorId);
             if (targetMonitor != null)
             {
-                targetMonitor.MonitoredEvents.ToList().Add(request.MonitoredEvent);
+                targetMonitor.MonitoredEvents.Add(request.MonitoredEvent);
                 response.Success = true;
                 Broadcaster.PushMessage(targetMonitor, request.MonitoredEvent.Id);
             }
@@ -30,14 +30,11 @@ namespace Monitor.Hub
             return response;
         }
 
-        private IEnumerable<IEventMonitor> _eventMonitors;
-        public IEnumerable<IEventMonitor> EventMonitors
+        private List<IEventMonitor> _eventMonitors;
+        public IList<IEventMonitor> EventMonitors
         {
             get { return _eventMonitors ?? (_eventMonitors = new List<IEventMonitor>()); }
-            set
-            {
-                _eventMonitors = value;
-            }
+            set { _eventMonitors = value.ToList(); }
         }
     }
 }

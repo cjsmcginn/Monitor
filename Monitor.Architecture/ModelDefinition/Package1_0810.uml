@@ -661,60 +661,6 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
-        <targetEnds>
-          <association
-            Id="fa4dacc6-e615-4324-b383-cb649bcd3b8e"
-            isDerived="false"
-            sourceEndRoleName="IEventMonitor"
-            targetEndRoleName="MonitoredEvents"
-            isLeaf="false"
-            isAbstract="false">
-            <interfaceMoniker
-              Id="9e5ce17f-144f-4cf8-83bc-ecaf45447617"
-              LastKnownName="IMonitoredEvent"
-              LastKnownLocation="Package1_0810.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="9f0d7cbf-7acd-432c-84ce-ffb6811d949b"
-                  name="IEventMonitor"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="7539ac4b-8e98-4e46-8221-5329d59abf7f"
-                  name="MonitoredEvents"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="a939bae7-3291-4aee-be05-800d23acc9d6"
-                      name="Lower"
-                      value="1" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="dcb536c0-bbc4-4e52-9173-fb725da50257"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
         <ownedAttributes>
           <property
             Id="9b39b198-3c41-4efa-855f-3798a5335fa2"
@@ -787,6 +733,80 @@
               <undefinedTypeMoniker
                 Id="f18a6170-259c-4140-812d-a8184ccfcdf8"
                 LastKnownName="Guid"
+                LastKnownLocation="Package1_0810.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f1143bbf-c29d-4666-8770-c63b337d5cea"
+            name="MonitoredEvents"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d8594bbf-ca8a-4850-9872-98b302ca6f29"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="135a318b-d6c3-4d39-ae01-84c442636e24">
+                    <propertyInstance
+                      Id="3586aa30-b0d0-49e8-93ea-bd897c9179b6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b992f1ff-3933-4523-9e2e-dd24c34b770f">
+                    <propertyInstance
+                      Id="1c7f2f41-ec69-4623-a26e-7bbaeacfb6a6"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="48ea6dad-7b04-4d78-a2c8-0028fc2aa8c6">
+                    <propertyInstance
+                      Id="2c279965-dbd4-4fdf-8df9-1a882bd3d51c"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6db73ace-5113-4eb6-9526-fc7bb393c91b">
+                    <propertyInstance
+                      Id="97cefafe-d755-46d0-bf4e-4ffc3548866a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d40deaaa-00b1-43c1-90ac-d7a3ffdc9755">
+                    <propertyInstance
+                      Id="63f4738f-447b-4422-86ec-1ac17076fecb"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="72742854-ea7b-4a26-84c6-c5e870c5d034">
+                    <propertyInstance
+                      Id="e0fdcc6a-9c55-4214-8325-c041d28551da"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c6046ffd-9ee9-401f-9e14-17dd97fcefb0">
+                    <propertyInstance
+                      Id="d5e09028-dc2a-42fd-8cf9-66dc1b09face"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="6bf7e6cf-b793-46a4-bc1a-6a8d6db161cb"
+                LastKnownName="IList&lt;IMonitoredEvent&gt;"
                 LastKnownLocation="Package1_0810.uml" />
             </type_NamedElement>
           </property>
@@ -1341,60 +1361,82 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
-        <targetEnds>
-          <association
-            Id="f72eaf8b-86c8-438a-a46a-3d4885343824"
-            isDerived="false"
-            sourceEndRoleName="IHubService"
-            targetEndRoleName="EventMonitors"
+        <ownedAttributes>
+          <property
+            Id="a09a8289-5dd3-47aa-bb3f-6de74cff6f72"
+            name="EventMonitors"
             isLeaf="false"
-            isAbstract="false">
-            <interfaceMoniker
-              Id="4bc2363d-3e8d-4ec8-a9b7-acd99646dce1"
-              LastKnownName="IEventMonitor"
-              LastKnownLocation="Package1_0810.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="fff9e8f8-1c5a-47fe-bdea-32021bd15b84"
-                  name="IHubService"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="d6a70e2b-3f57-4bc8-9940-74dc36666f52"
-                  name="EventMonitors"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="e2dd9ac5-e4ee-4c58-ac77-aa01cc796f93"
-                      name="Lower"
-                      value="1" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="06f77a52-d3fd-42ae-9616-a16119a2cd2c"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b3bd9ab9-c3b4-4156-96e6-99f12de752c4"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4569354c-e250-4a94-b1ab-68e179a8abfd">
+                    <propertyInstance
+                      Id="cfddc407-6b04-4d5d-b3bb-c68901b15e96"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="79947fcf-8c18-4e17-88ea-3cb2bf20ee28">
+                    <propertyInstance
+                      Id="b0df7b04-64d5-4c3d-a904-38724b1dd436"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9d5eff91-6b08-44f9-8124-91ff86d95e95">
+                    <propertyInstance
+                      Id="8fd8a980-270c-4f82-ba9e-50a4bed7be0c"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="38ce90c5-f80f-4a71-a3a1-7da8bd09c844">
+                    <propertyInstance
+                      Id="b7e08ed6-1459-4b66-8833-dce4e6352ae6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ebee5f7f-1231-4597-8927-7254b8921392">
+                    <propertyInstance
+                      Id="c706dfbf-a351-44f7-bce9-76351e64236b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="659b6a5e-cc34-4a07-b7be-958f55ad7ca2">
+                    <propertyInstance
+                      Id="dd0e3a13-c2e6-44b2-98b6-e6334fad124e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5ef7dd9a-ef52-4043-9f6c-dca66cf9ccb6">
+                    <propertyInstance
+                      Id="ebd3cc18-2dbc-42d4-8bcd-e096eee4e239"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="58324d75-36fd-409b-9c2c-cb8c98657674"
+                LastKnownName="IList&lt;IEventMonitor&gt;"
+                LastKnownLocation="Package1_0810.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
         <ownedOperations>
           <operation
             Id="6d58146d-0ba9-4da7-9efd-113d68aa98a0"
@@ -1557,6 +1599,16 @@
           </operation>
         </ownedOperations>
       </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="58324d75-36fd-409b-9c2c-cb8c98657674"
+        name="IList&lt;IEventMonitor&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="6bf7e6cf-b793-46a4-bc1a-6a8d6db161cb"
+        name="IList&lt;IMonitoredEvent&gt;" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

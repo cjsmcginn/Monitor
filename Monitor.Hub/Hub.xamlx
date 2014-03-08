@@ -2,7 +2,7 @@
  xmlns="http://schemas.microsoft.com/netfx/2009/xaml/servicemodel"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
  xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
- xmlns:mcd1="clr-namespace:Monitor.Core.Domain;assembly=Monitor.Core"
+ xmlns:mcd="clr-namespace:Monitor.Core.Domain;assembly=Monitor.Core"
  xmlns:p="http://tempuri.org/"
  xmlns:p1="http://schemas.microsoft.com/netfx/2009/xaml/activities"
  xmlns:s="clr-namespace:System;assembly=mscorlib"
@@ -27,7 +27,20 @@
     </p1:TextExpression.Namespaces>
     <p1:TextExpression.References>
       <sco:Collection x:TypeArguments="p1:AssemblyReference" x:Name="__ReferenceID4">
+        <p1:AssemblyReference>Microsoft.AspNet.SignalR.Core</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.AspNet.SignalR.SystemWeb</p1:AssemblyReference>
         <p1:AssemblyReference>Microsoft.CSharp</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.Owin</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.Owin.Cors</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.Owin.Diagnostics</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.Owin.Host.HttpListener</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.Owin.Host.SystemWeb</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.Owin.Hosting</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.Owin.Security</p1:AssemblyReference>
+        <p1:AssemblyReference>Newtonsoft.Json</p1:AssemblyReference>
+        <p1:AssemblyReference>Owin</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Configuration</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web.Cors</p1:AssemblyReference>
         <p1:AssemblyReference>System.Web.DynamicData</p1:AssemblyReference>
         <p1:AssemblyReference>System.Drawing</p1:AssemblyReference>
         <p1:AssemblyReference>System.Web.Entity</p1:AssemblyReference>
@@ -51,18 +64,18 @@
       </sco:Collection>
     </p1:TextExpression.References>
     <p1:Sequence.Variables>
-      <p1:Variable x:TypeArguments="mcd1:IHubService" Name="hubService" />
-      <p1:Variable x:TypeArguments="scg:List(mcd1:IEventMonitor)" Name="eventMonitors" />
+      <p1:Variable x:TypeArguments="mcd:IHubService" Name="hubService" />
+      <p1:Variable x:TypeArguments="scg:List(mcd:IEventMonitor)" Name="eventMonitors" />
     </p1:Sequence.Variables>
     <p1:Assign DisplayName="Assign New HubService" sap2010:WorkflowViewState.IdRef="Assign_1">
       <p1:Assign.To>
-        <p1:OutArgument x:TypeArguments="mcd1:IHubService">
-          <mca:CSharpReference x:TypeArguments="mcd1:IHubService">hubService</mca:CSharpReference>
+        <p1:OutArgument x:TypeArguments="mcd:IHubService">
+          <mca:CSharpReference x:TypeArguments="mcd:IHubService">hubService</mca:CSharpReference>
         </p1:OutArgument>
       </p1:Assign.To>
       <p1:Assign.Value>
-        <p1:InArgument x:TypeArguments="mcd1:IHubService">
-          <mca:CSharpValue x:TypeArguments="mcd1:IHubService">new HubService()</mca:CSharpValue>
+        <p1:InArgument x:TypeArguments="mcd:IHubService">
+          <mca:CSharpValue x:TypeArguments="mcd:IHubService">ServiceFactory.GetHubService()</mca:CSharpValue>
         </p1:InArgument>
       </p1:Assign.Value>
     </p1:Assign>
@@ -87,8 +100,8 @@
               </p1:OutArgument>
             </p1:InvokeMethod.Result>
             <p1:InvokeMethod.TargetObject>
-              <p1:InArgument x:TypeArguments="mcd1:IHubService">
-                <mca:CSharpValue x:TypeArguments="mcd1:IHubService">hubService</mca:CSharpValue>
+              <p1:InArgument x:TypeArguments="mcd:IHubService">
+                <mca:CSharpValue x:TypeArguments="mcd:IHubService">hubService</mca:CSharpValue>
               </p1:InArgument>
             </p1:InvokeMethod.TargetObject>
           </p1:InvokeMethod>
@@ -106,7 +119,7 @@
       </p1:PickBranch>
       <p1:PickBranch DisplayName="Pick Post Monitored Event" sap2010:WorkflowViewState.IdRef="PickBranch_2">
         <p1:PickBranch.Variables>
-          <p1:Variable x:TypeArguments="mcd1:IMonitoredEventRequest" Name="monitoredEventRequest" />
+          <p1:Variable x:TypeArguments="mcd:IMonitoredEventRequest" Name="monitoredEventRequest" />
           <x:Reference>__ReferenceID1</x:Reference>
         </p1:PickBranch.Variables>
         <p1:PickBranch.Trigger>
@@ -116,21 +129,21 @@
         </p1:PickBranch.Trigger>
         <p1:Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
           <p1:Sequence.Variables>
-            <p1:Variable x:TypeArguments="mcd1:IMonitoredEventResponse" Name="data" />
+            <p1:Variable x:TypeArguments="mcd:IMonitoredEventResponse" Name="data" />
           </p1:Sequence.Variables>
           <p1:InvokeMethod sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="PostMonitoredEvent">
             <p1:InvokeMethod.Result>
-              <p1:OutArgument x:TypeArguments="mcd1:IMonitoredEventResponse">
-                <mca:CSharpReference x:TypeArguments="mcd1:IMonitoredEventResponse">data</mca:CSharpReference>
+              <p1:OutArgument x:TypeArguments="mcd:IMonitoredEventResponse">
+                <mca:CSharpReference x:TypeArguments="mcd:IMonitoredEventResponse">data</mca:CSharpReference>
               </p1:OutArgument>
             </p1:InvokeMethod.Result>
             <p1:InvokeMethod.TargetObject>
-              <p1:InArgument x:TypeArguments="mcd1:IHubService">
-                <mca:CSharpValue x:TypeArguments="mcd1:IHubService">hubService</mca:CSharpValue>
+              <p1:InArgument x:TypeArguments="mcd:IHubService">
+                <mca:CSharpValue x:TypeArguments="mcd:IHubService">hubService</mca:CSharpValue>
               </p1:InArgument>
             </p1:InvokeMethod.TargetObject>
-            <p1:InArgument x:TypeArguments="mcd1:IMonitoredEventRequest">
-              <mca:CSharpValue x:TypeArguments="mcd1:IMonitoredEventRequest">monitoredEventRequest</mca:CSharpValue>
+            <p1:InArgument x:TypeArguments="mcd:IMonitoredEventRequest">
+              <mca:CSharpValue x:TypeArguments="mcd:IMonitoredEventRequest">monitoredEventRequest</mca:CSharpValue>
             </p1:InArgument>
           </p1:InvokeMethod>
           <SendReply DisplayName="SendReplyToReceive" sap2010:WorkflowViewState.IdRef="SendReply_2">
@@ -150,28 +163,28 @@
                   </RequestReplyCorrelationInitializer>
                 </Receive.CorrelationInitializers>
                 <Receive.KnownTypes>
-                  <x:Type Type="mcd1:MonitoredEventRequest" />
-                  <x:Type Type="mcd1:IMonitoredEventRequest" />
-                  <x:Type Type="mcd1:MonitoredEvent" />
-                  <x:Type Type="mcd1:MonitoredEventResponse" />
+                  <x:Type Type="mcd:MonitoredEventRequest" />
+                  <x:Type Type="mcd:IMonitoredEventRequest" />
+                  <x:Type Type="mcd:MonitoredEvent" />
+                  <x:Type Type="mcd:MonitoredEventResponse" />
                 </Receive.KnownTypes>
                 <ReceiveParametersContent>
-                  <p1:OutArgument x:TypeArguments="mcd1:IMonitoredEventRequest" x:Key="request">
-                    <mca:CSharpReference x:TypeArguments="mcd1:IMonitoredEventRequest">monitoredEventRequest</mca:CSharpReference>
+                  <p1:OutArgument x:TypeArguments="mcd:IMonitoredEventRequest" x:Key="request">
+                    <mca:CSharpReference x:TypeArguments="mcd:IMonitoredEventRequest">monitoredEventRequest</mca:CSharpReference>
                   </p1:OutArgument>
                 </ReceiveParametersContent>
               </Receive>
             </SendReply.Request>
-            <SendMessageContent DeclaredMessageType="mcd1:IMonitoredEventResponse">
-              <p1:InArgument x:TypeArguments="mcd1:IMonitoredEventResponse">
-                <mca:CSharpValue x:TypeArguments="mcd1:IMonitoredEventResponse">data</mca:CSharpValue>
+            <SendMessageContent DeclaredMessageType="mcd:IMonitoredEventResponse">
+              <p1:InArgument x:TypeArguments="mcd:IMonitoredEventResponse">
+                <mca:CSharpValue x:TypeArguments="mcd:IMonitoredEventResponse">data</mca:CSharpValue>
               </p1:InArgument>
             </SendMessageContent>
           </SendReply>
         </p1:Sequence>
       </p1:PickBranch>
     </p1:Pick>
-    <sads:DebugSymbol.Symbol>dzRDOlxQcm9qZWN0c1xQcm90b3R5cGVzXE1vbml0b3JcTW9uaXRvci5IdWJcSHViLnhhbWx4GhADsQERAQE7BUYRATtHBa8BDwECQwtDYAE/Pgs+YgE8SAdsFwEpbQeuARcBA00LUhkBOVQJaxcBKnMLdRkBIXcJrQEXAQRjD2OzAQE6VQtgHQEwYQtqFwErjAEPpQEZASJ7C4kBHQEOigELrAEXAQVYEVhZATVdEV1gATFnEWdRASyiARWiAYIBASSRARmVASwBI4cBD4cBdAEbfhF+bgEVgwERgwFgAQ+pARGpAWYBBg==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dzRDOlxQcm9qZWN0c1xQcm90b3R5cGVzXE1vbml0b3JcTW9uaXRvci5IdWJcSHViLnhhbWx4Gg8DvAERAQFGBVERATtSBboBDwECTgtObgE/SQtJYgE8Uwd3FwEpeAe5ARcBA1gLXRkBOV8JdhcBKn4LgAEZASGCAQm4ARcBBG4PbrMBATpgC2sdATBsC3UXASuXAQ+wARkBIoYBC5QBHQEOlQELtwEXAQVjEWNZATVoEWhgATFyEXJRASytARWtAYIBASScARmgASwBI5IBD5IBdAEbiQERiQFuARWOARGOAWABD7QBEbQBZgEG</sads:DebugSymbol.Symbol>
   </p1:Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>

@@ -13,7 +13,7 @@ namespace Monitor.Core.Domain
 
 	public interface IHubService 
 	{
-		IEnumerable<IEventMonitor> EventMonitors { get;set; }
+		IList<IEventMonitor> EventMonitors { get;set; }
 
 		Guid GetMonitor();
 

@@ -10,8 +10,8 @@ namespace Monitor.Core.Domain
     {
         public Guid Id { get; set; }
 
-        private IEnumerable<IMonitoredEvent> _monitoredEvents;
-        public IEnumerable<IMonitoredEvent> MonitoredEvents
+        private IList<IMonitoredEvent> _monitoredEvents;
+        public IList<IMonitoredEvent> MonitoredEvents
         {
             get { return _monitoredEvents ?? (_monitoredEvents = new List<IMonitoredEvent>()); }
             set

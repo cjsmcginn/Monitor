@@ -15,7 +15,7 @@ namespace Monitor.Core.Domain
 	{
 		Guid Id { get;set; }
 
-		IEnumerable<IMonitoredEvent> MonitoredEvents { get;set; }
+		IList<IMonitoredEvent> MonitoredEvents { get;set; }
 
 	}
 }
