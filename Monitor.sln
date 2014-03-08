@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitor.SystemTests", "Moni
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{87459DEC-CD39-423F-AEDE-F3A6C282D81D}"
 EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Monitor.Architecture", "Monitor.Architecture\Monitor.Architecture.modelproj", "{59D30A35-5A5C-4354-A3FE-770C6D121856}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{8778FC56-EC03-49DF-9F3F-A10C45948085}"
 EndProject
 Global
@@ -33,16 +31,11 @@ Global
 		{5ABC65C6-29EA-4184-8A7D-447E50DD8FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ABC65C6-29EA-4184-8A7D-447E50DD8FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ABC65C6-29EA-4184-8A7D-447E50DD8FA8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{59D30A35-5A5C-4354-A3FE-770C6D121856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59D30A35-5A5C-4354-A3FE-770C6D121856}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59D30A35-5A5C-4354-A3FE-770C6D121856}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59D30A35-5A5C-4354-A3FE-770C6D121856}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5ABC65C6-29EA-4184-8A7D-447E50DD8FA8} = {87459DEC-CD39-423F-AEDE-F3A6C282D81D}
-		{59D30A35-5A5C-4354-A3FE-770C6D121856} = {8778FC56-EC03-49DF-9F3F-A10C45948085}
 	EndGlobalSection
 EndGlobal

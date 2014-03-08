@@ -98,7 +98,7 @@
                 <propertyInstance
                   Id="123c7e9d-1294-4804-9f2c-bff31f9b797d"
                   name="TargetDirectory"
-                  value="InterfaceTemplate=..\Monitor.Core\Domain" />
+                  value="InterfaceTemplate=GeneratedCode\{PackageStructure}" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
                 Id="e15565db-52b7-4005-b8b9-abcc11154e28">
