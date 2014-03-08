@@ -12,7 +12,7 @@ namespace Monitor.Hub
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            Broadcaster.InitializeHub();
         }
 
         protected void Session_Start(object sender, EventArgs e)

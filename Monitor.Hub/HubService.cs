@@ -24,7 +24,9 @@ namespace Monitor.Hub
             {
                 targetMonitor.MonitoredEvents.ToList().Add(request.MonitoredEvent);
                 response.Success = true;
+                Broadcaster.PushMessage(targetMonitor, request.MonitoredEvent.Id);
             }
+           
             return response;
         }
 
