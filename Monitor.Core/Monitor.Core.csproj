@@ -42,6 +42,7 @@
     <Compile Include="GeneratedCode\Model.Core.Domain\EventCategory.cs" />
     <Compile Include="GeneratedCode\Model.Core.Domain\IEventMonitor.cs" />
     <Compile Include="GeneratedCode\Model.Core.Domain\IMonitoredEvent.cs" />
+    <Compile Include="GeneratedCode\Model.Core.Domain\IMonitoredEventResponse.cs" />
     <Compile Include="GeneratedCode\Model.Core.Domain\IMonitorRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
