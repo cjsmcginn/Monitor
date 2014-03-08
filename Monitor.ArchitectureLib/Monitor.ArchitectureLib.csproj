@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9652B073-CD13-462E-8B1D-3B8569931387}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Monitor.ArchitectureLib</RootNamespace>
+    <AssemblyName>Monitor.ArchitectureLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Monitor.ArchitectureLib\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="..\Monitor.ArchitectureLib\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="..\Monitor.ArchitectureLib\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="..\Monitor.ArchitectureLib\Properties\AssemblyInfo.cs" />
+    <Compile Include="..\Monitor.Core\Domain\IMonitoredEvent.cs" />
+    <Compile Include="..\Monitor.Core\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="..\Monitor.Core\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="..\Monitor.Core\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="..\Monitor.Core\Properties\AssemblyInfo.cs" />
+    <Compile Include="..\Monitor.Hub\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="..\Monitor.Hub\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="..\Monitor.Hub\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="..\Monitor.Hub\Properties\AssemblyInfo.cs" />
+    <Compile Include="..\Monitor.SystemTests\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="..\Monitor.SystemTests\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="..\Monitor.SystemTests\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="..\Monitor.SystemTests\Properties\AssemblyInfo.cs" />
+    <Compile Include="..\Monitor.SystemTests\UnitTest1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.gitattributes" />
+    <None Include="..\.gitignore" />
+    <None Include="..\.git\config" />
+    <None Include="..\.git\description" />
+    <None Include="..\.git\FETCH_HEAD" />
+    <None Include="..\.git\HEAD" />
+    <None Include="..\.git\hooks\README.sample" />
+    <None Include="..\.git\index" />
+    <None Include="..\.git\info\exclude" />
+    <None Include="..\.git\logs\HEAD" />
+    <None Include="..\.git\logs\refs\heads\master" />
+    <None Include="..\.git\objects\1a\daa501e4f78f74a5b9c98992dec53f5978a7ed" />
+    <None Include="..\.git\objects\1b\c915c5cb7185a9438de28a7b1a7dfe8c01ee7f" />
+    <None Include="..\.git\objects\1f\f0c423042b46cb1d617b81efb715defbe8054d" />
+    <None Include="..\.git\objects\28\d77585dd2627f549b74dd30bc515c39ef917c4" />
+    <None Include="..\.git\objects\31\b470eac9c5bb17baea1bc26f7861af997857f5" />
+    <None Include="..\.git\objects\34\a766264b14b2e850217857eca3075d3a81942d" />
+    <None Include="..\.git\objects\39\b2759bb7b2ccf2d1c8427ceb49e599177aa8b0" />
+    <None Include="..\.git\objects\3c\92cd19af4869005811ca0221062d25305fccc4" />
+    <None Include="..\.git\objects\3d\3ca04e30001835afb70ccebe132b835e95d101" />
+    <None Include="..\.git\objects\42\1eca828ca03df85c8b9cf0df84b595aa12006f" />
+    <None Include="..\.git\objects\47\7562c30a623ea532b8e0ed09b693be63f91111" />
+    <None Include="..\.git\objects\4e\a3c5324861badc767525c667645dbc1d843d32" />
+    <None Include="..\.git\objects\5c\f8827971528fc46d6216c4fed710b1abea233a" />
+    <None Include="..\.git\objects\5d\07b3609fde9c1cfe26aa6ecf3af11ad7eba6ad" />
+    <None Include="..\.git\objects\65\733ce2d8bc57ae47e64202e7dca1501d28d8ad" />
+    <None Include="..\.git\objects\72\7ecb77115b6813b3b0940240d8bfdf40376bb9" />
+    <None Include="..\.git\objects\73\dcdb3aa7b913b5071663b1ff9d8b77f318c2a0" />
+    <None Include="..\.git\objects\9b\7034442532a0d5f914be7725a8c66c467d6831" />
+    <None Include="..\.git\objects\9f\a5b72e8dfc05f2c88377c3af7c737ce5ea0429" />
+    <None Include="..\.git\objects\a4\4ebd688dd2b09d0286bab016083b22c877b6ae" />
+    <None Include="..\.git\objects\b5\0a777acd5f1649374b34ec20141c12389237a9" />
+    <None Include="..\.git\objects\b7\c60612e480b2d69a0a33a27e7891db2853b929" />
+    <None Include="..\.git\objects\bf\527e701692a5da225775ab846f41de2dc8ae16" />
+    <None Include="..\.git\objects\c9\1218262d51e4979c403a6097ab1a4b40872ef7" />
+    <None Include="..\.git\objects\ce\92e6756d091adfd99f7867e9d4a3e4c355cc08" />
+    <None Include="..\.git\objects\de\c0a3b5022d9cacf559c0b2a706e8342da186a0" />
+    <None Include="..\.git\objects\e8\79b9a07d8b87730cc20a763fc7b2b79fd198c1" />
+    <None Include="..\.git\objects\f6\ef709989350444b7cd5d1296754620eb7496a3" />
+    <None Include="..\.git\refs\heads\master" />
+    <None Include="..\.git\refs\remotes\origin\master" />
+    <None Include="..\Monitor.ArchitectureLib\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="..\Monitor.ArchitectureLib\obj\Debug\Monitor.ArchitectureLib.csprojResolveAssemblyReference.cache" />
+    <None Include="..\Monitor.Architecture\Domain.classdiagram" />
+    <None Include="..\Monitor.Architecture\ModelDefinition\Monitor.Architecture.uml" />
+    <None Include="..\Monitor.Architecture\ModelDefinition\Package_0709.uml" />
+    <None Include="..\Monitor.Architecture\Monitor.Architecture.modelproj" />
+    <None Include="..\Monitor.Architecture\Templates\ClassTemplate.t4" />
+    <None Include="..\Monitor.Architecture\Templates\CSharpCommentHelpers.t4" />
+    <None Include="..\Monitor.Architecture\Templates\CSharpHelpers.t4" />
+    <None Include="..\Monitor.Architecture\Templates\CSharpStereotypeHelpers.t4" />
+    <None Include="..\Monitor.Architecture\Templates\EnumTemplate.t4" />
+    <None Include="..\Monitor.Architecture\Templates\InterfaceTemplate.t4" />
+    <None Include="..\Monitor.Architecture\Templates\StructTemplate.t4" />
+    <None Include="..\Monitor.Architecture\Templates\TemplateHeader.t4" />
+    <None Include="..\Monitor.Core\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="..\Monitor.Hub\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="..\Monitor.Hub\Service1.xamlx">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="..\Monitor.Hub\Web.config" />
+    <None Include="..\Monitor.Hub\Web.Debug.config" />
+    <None Include="..\Monitor.Hub\Web.Release.config" />
+    <None Include="..\Monitor.SystemTests\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="..\Monitor.v12.suo" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\.git\ms-persist.xml" />
+    <Content Include="..\Monitor.ArchitectureLib\Monitor.ArchitectureLib.csproj" />
+    <Content Include="..\Monitor.Architecture\CodeGeneration.Log.xml" />
+    <Content Include="..\Monitor.Core\Monitor.Core.csproj" />
+    <Content Include="..\Monitor.Hub\Monitor.Hub.csproj" />
+    <Content Include="..\Monitor.Hub\Monitor.Hub.csproj.user" />
+    <Content Include="..\Monitor.sln" />
+    <Content Include="..\Monitor.SystemTests\Monitor.SystemTests.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\Monitor.Architecture\Domain.classdiagram.layout" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="..\.git\objects\info\" />
+    <Folder Include="..\.git\objects\pack\" />
+    <Folder Include="..\.git\refs\tags\" />
+    <Folder Include="..\Monitor.ArchitectureLib\bin\Debug\" />
+    <Folder Include="..\Monitor.ArchitectureLib\bin\Release\" />
+    <Folder Include="..\Monitor.ArchitectureLib\obj\Debug\InProcessTempFiles\" />
+    <Folder Include="..\Monitor.ArchitectureLib\obj\Debug\TempPE\" />
+    <Folder Include="..\Monitor.Architecture\bin\Debug\" />
+    <Folder Include="..\Monitor.Architecture\obj\Debug\" />
+    <Folder Include="..\Monitor.Core\bin\Debug\" />
+    <Folder Include="..\Monitor.Core\bin\Release\" />
+    <Folder Include="..\Monitor.Core\obj\Debug\TempPE\" />
+    <Folder Include="..\Monitor.Hub\App_Data\" />
+    <Folder Include="..\Monitor.Hub\bin\" />
+    <Folder Include="..\Monitor.Hub\obj\Debug\TempPE\" />
+    <Folder Include="..\Monitor.SystemTests\bin\Debug\" />
+    <Folder Include="..\Monitor.SystemTests\obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

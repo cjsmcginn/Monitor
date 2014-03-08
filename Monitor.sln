@@ -15,6 +15,8 @@ Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Monitor.Architecture", "Mon
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{8778FC56-EC03-49DF-9F3F-A10C45948085}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitor.ArchitectureLib", "Monitor.ArchitectureLib\Monitor.ArchitectureLib.csproj", "{9652B073-CD13-462E-8B1D-3B8569931387}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{59D30A35-5A5C-4354-A3FE-770C6D121856}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59D30A35-5A5C-4354-A3FE-770C6D121856}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59D30A35-5A5C-4354-A3FE-770C6D121856}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9652B073-CD13-462E-8B1D-3B8569931387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9652B073-CD13-462E-8B1D-3B8569931387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9652B073-CD13-462E-8B1D-3B8569931387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9652B073-CD13-462E-8B1D-3B8569931387}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
