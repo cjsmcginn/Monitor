@@ -11,13 +11,11 @@ namespace Model.Core.Domain
 	using System.Linq;
 	using System.Text;
 
-	public interface IMonitoredEvent 
+	public interface IMonitorRequest 
 	{
-		Guid Id { get;set; }
+		Guid EventMonitorId { get;set; }
 
-		string Title { get;set; }
-
-		EventCategory EventCategory { get;set; }
+		IMonitoredEvent MonitoredEvent { get;set; }
 
 	}
 }
