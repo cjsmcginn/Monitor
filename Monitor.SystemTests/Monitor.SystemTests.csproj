@@ -36,6 +36,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -50,8 +53,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="HubServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HubTests.cs" />
+    <Compile Include="Service References\Hub\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monitor.Core\Monitor.Core.csproj">
@@ -62,6 +71,46 @@
       <Project>{35dd01bd-e2cc-45ce-bf12-94f5e7600554}</Project>
       <Name>Monitor.Hub</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\Hub\Hub.wsdl" />
+    <None Include="Service References\Hub\Hub.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Hub\Hub1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Hub\Hub2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Hub\Monitor.SystemTests.Hub.GetMonitorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Hub\Monitor.SystemTests.Hub.PostMonitoredEventResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Hub\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Hub\Hub.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Hub\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Hub\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Hub\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

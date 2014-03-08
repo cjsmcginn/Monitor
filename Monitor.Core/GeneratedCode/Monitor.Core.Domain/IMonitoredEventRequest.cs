@@ -4,18 +4,18 @@
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace Model.Core.Domain
+namespace Monitor.Core.Domain
 {
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
 
-	public interface IEventMonitor 
+	public interface IMonitoredEventRequest 
 	{
-		Guid Id { get;set; }
+		Guid EventMonitorId { get;set; }
 
-		IEnumerable<IMonitoredEvent> MonitoredEvents { get;set; }
+		IMonitoredEvent MonitoredEvent { get;set; }
 
 	}
 }

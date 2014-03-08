@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,16 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeneratedCode\Model.Core.Domain\EventCategory.cs" />
-    <Compile Include="GeneratedCode\Model.Core.Domain\IEventMonitor.cs" />
-    <Compile Include="GeneratedCode\Model.Core.Domain\IMonitoredEvent.cs" />
-    <Compile Include="GeneratedCode\Model.Core.Domain\IMonitoredEventResponse.cs" />
-    <Compile Include="GeneratedCode\Model.Core.Domain\IMonitorRequest.cs" />
+    <Compile Include="Domain\EventMonitor.cs" />
+    <Compile Include="Domain\MonitoredEvent.cs" />
+    <Compile Include="Domain\MonitoredEventRequest.cs" />
+    <Compile Include="Domain\MonitoredEventResponse.cs" />
+    <Compile Include="GeneratedCode\Monitor.Core.Domain\EventCategory.cs" />
+    <Compile Include="GeneratedCode\Monitor.Core.Domain\IEventMonitor.cs" />
+    <Compile Include="GeneratedCode\Monitor.Core.Domain\IHubService.cs" />
+    <Compile Include="GeneratedCode\Monitor.Core.Domain\IMonitoredEvent.cs" />
+    <Compile Include="GeneratedCode\Monitor.Core.Domain\IMonitoredEventRequest.cs" />
+    <Compile Include="GeneratedCode\Monitor.Core.Domain\IMonitoredEventResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

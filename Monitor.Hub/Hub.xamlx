@@ -1,0 +1,226 @@
+﻿<WorkflowService mc:Ignorable="sap sap2010 sads" p1:TextExpression.Namespaces="{x:Reference __ReferenceID3}" p1:TextExpression.References="{x:Reference __ReferenceID4}" ConfigurationName="Hub" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="WorkflowService_1" Name="Hub"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/servicemodel"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:mcd1="clr-namespace:Monitor.Core.Domain;assembly=Monitor.Core"
+ xmlns:p="http://tempuri.org/"
+ xmlns:p1="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <p1:Sequence DisplayName="Sequential Service" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <p1:TextExpression.Namespaces>
+      <sco:Collection x:TypeArguments="x:String" x:Name="__ReferenceID3">
+        <x:String>System</x:String>
+        <x:String>System.Collections.Generic</x:String>
+        <x:String>System.Data</x:String>
+        <x:String>System.Linq</x:String>
+        <x:String>System.Text</x:String>
+        <x:String>Monitor.Hub</x:String>
+        <x:String>System.ServiceModel.Activities</x:String>
+        <x:String>Monitor.Core.Domain</x:String>
+      </sco:Collection>
+    </p1:TextExpression.Namespaces>
+    <p1:TextExpression.References>
+      <sco:Collection x:TypeArguments="p1:AssemblyReference" x:Name="__ReferenceID4">
+        <p1:AssemblyReference>Microsoft.CSharp</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web.DynamicData</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Drawing</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web.Entity</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web.ApplicationServices</p1:AssemblyReference>
+        <p1:AssemblyReference>System</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Activities</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Core</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Data</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Data.Entity</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Runtime.Serialization</p1:AssemblyReference>
+        <p1:AssemblyReference>System.ServiceModel</p1:AssemblyReference>
+        <p1:AssemblyReference>System.ServiceModel.Activities</p1:AssemblyReference>
+        <p1:AssemblyReference>System.ServiceModel.Channels</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Xaml</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Xml</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Xml.Linq</p1:AssemblyReference>
+        <p1:AssemblyReference>Monitor.Core</p1:AssemblyReference>
+        <p1:AssemblyReference>mscorlib</p1:AssemblyReference>
+        <p1:AssemblyReference>Monitor.Hub</p1:AssemblyReference>
+      </sco:Collection>
+    </p1:TextExpression.References>
+    <p1:Sequence.Variables>
+      <p1:Variable x:TypeArguments="mcd1:IHubService" Name="hubService" />
+      <p1:Variable x:TypeArguments="scg:List(mcd1:IEventMonitor)" Name="eventMonitors" />
+    </p1:Sequence.Variables>
+    <p1:Assign DisplayName="Assign New HubService" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <p1:Assign.To>
+        <p1:OutArgument x:TypeArguments="mcd1:IHubService">
+          <mca:CSharpReference x:TypeArguments="mcd1:IHubService">hubService</mca:CSharpReference>
+        </p1:OutArgument>
+      </p1:Assign.To>
+      <p1:Assign.Value>
+        <p1:InArgument x:TypeArguments="mcd1:IHubService">
+          <mca:CSharpValue x:TypeArguments="mcd1:IHubService">new HubService()</mca:CSharpValue>
+        </p1:InArgument>
+      </p1:Assign.Value>
+    </p1:Assign>
+    <p1:Pick sap2010:WorkflowViewState.IdRef="Pick_1">
+      <p1:PickBranch DisplayName="Pick Get Monitor" sap2010:WorkflowViewState.IdRef="PickBranch_1">
+        <p1:PickBranch.Variables>
+          <p1:Variable x:TypeArguments="s:Guid" Name="data" />
+        </p1:PickBranch.Variables>
+        <p1:PickBranch.Trigger>
+          <p1:Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <p1:Sequence.Variables>
+              <p1:Variable x:TypeArguments="CorrelationHandle" Name="getMonitorCorrelationHandle" />
+            </p1:Sequence.Variables>
+            <x:Reference>__ReferenceID0</x:Reference>
+          </p1:Sequence>
+        </p1:PickBranch.Trigger>
+        <p1:Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <p1:InvokeMethod sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="GetMonitor">
+            <p1:InvokeMethod.Result>
+              <p1:OutArgument x:TypeArguments="s:Guid">
+                <mca:CSharpReference x:TypeArguments="s:Guid">data</mca:CSharpReference>
+              </p1:OutArgument>
+            </p1:InvokeMethod.Result>
+            <p1:InvokeMethod.TargetObject>
+              <p1:InArgument x:TypeArguments="mcd1:IHubService">
+                <mca:CSharpValue x:TypeArguments="mcd1:IHubService">hubService</mca:CSharpValue>
+              </p1:InArgument>
+            </p1:InvokeMethod.TargetObject>
+          </p1:InvokeMethod>
+          <SendReply DisplayName="SendReplyToReceive" sap2010:WorkflowViewState.IdRef="SendReply_1">
+            <SendReply.Request>
+              <Receive x:Name="__ReferenceID0" CanCreateInstance="True" sap2010:WorkflowViewState.IdRef="Receive_1" OperationName="GetMonitor" ServiceContractName="p:IService" />
+            </SendReply.Request>
+            <SendMessageContent DeclaredMessageType="s:Guid">
+              <p1:InArgument x:TypeArguments="s:Guid">
+                <mca:CSharpValue x:TypeArguments="s:Guid">data</mca:CSharpValue>
+              </p1:InArgument>
+            </SendMessageContent>
+          </SendReply>
+        </p1:Sequence>
+      </p1:PickBranch>
+      <p1:PickBranch DisplayName="Pick Post Monitored Event" sap2010:WorkflowViewState.IdRef="PickBranch_2">
+        <p1:PickBranch.Variables>
+          <p1:Variable x:TypeArguments="mcd1:IMonitoredEventRequest" Name="monitoredEventRequest" />
+          <x:Reference>__ReferenceID1</x:Reference>
+        </p1:PickBranch.Variables>
+        <p1:PickBranch.Trigger>
+          <p1:Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <x:Reference>__ReferenceID2</x:Reference>
+          </p1:Sequence>
+        </p1:PickBranch.Trigger>
+        <p1:Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <p1:Sequence.Variables>
+            <p1:Variable x:TypeArguments="mcd1:IMonitoredEventResponse" Name="data" />
+          </p1:Sequence.Variables>
+          <p1:InvokeMethod sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="PostMonitoredEvent">
+            <p1:InvokeMethod.Result>
+              <p1:OutArgument x:TypeArguments="mcd1:IMonitoredEventResponse">
+                <mca:CSharpReference x:TypeArguments="mcd1:IMonitoredEventResponse">data</mca:CSharpReference>
+              </p1:OutArgument>
+            </p1:InvokeMethod.Result>
+            <p1:InvokeMethod.TargetObject>
+              <p1:InArgument x:TypeArguments="mcd1:IHubService">
+                <mca:CSharpValue x:TypeArguments="mcd1:IHubService">hubService</mca:CSharpValue>
+              </p1:InArgument>
+            </p1:InvokeMethod.TargetObject>
+            <p1:InArgument x:TypeArguments="mcd1:IMonitoredEventRequest">
+              <mca:CSharpValue x:TypeArguments="mcd1:IMonitoredEventRequest">monitoredEventRequest</mca:CSharpValue>
+            </p1:InArgument>
+          </p1:InvokeMethod>
+          <SendReply DisplayName="SendReplyToReceive" sap2010:WorkflowViewState.IdRef="SendReply_2">
+            <SendReply.Request>
+              <Receive x:Name="__ReferenceID2" CanCreateInstance="True" sap2010:WorkflowViewState.IdRef="Receive_2" OperationName="PostMonitoredEvent" ServiceContractName="p:IService">
+                <Receive.CorrelationInitializers>
+                  <RequestReplyCorrelationInitializer>
+                    <RequestReplyCorrelationInitializer.CorrelationHandle>
+                      <p1:InArgument x:TypeArguments="CorrelationHandle">
+                        <p1:VariableValue x:TypeArguments="CorrelationHandle">
+                          <p1:VariableValue.Variable>
+                            <p1:Variable x:TypeArguments="CorrelationHandle" x:Name="__ReferenceID1" Name="__postMonitoredEventHandle" />
+                          </p1:VariableValue.Variable>
+                        </p1:VariableValue>
+                      </p1:InArgument>
+                    </RequestReplyCorrelationInitializer.CorrelationHandle>
+                  </RequestReplyCorrelationInitializer>
+                </Receive.CorrelationInitializers>
+                <Receive.KnownTypes>
+                  <x:Type Type="mcd1:MonitoredEventRequest" />
+                  <x:Type Type="mcd1:IMonitoredEventRequest" />
+                  <x:Type Type="mcd1:MonitoredEvent" />
+                  <x:Type Type="mcd1:MonitoredEventResponse" />
+                </Receive.KnownTypes>
+                <ReceiveParametersContent>
+                  <p1:OutArgument x:TypeArguments="mcd1:IMonitoredEventRequest" x:Key="request">
+                    <mca:CSharpReference x:TypeArguments="mcd1:IMonitoredEventRequest">monitoredEventRequest</mca:CSharpReference>
+                  </p1:OutArgument>
+                </ReceiveParametersContent>
+              </Receive>
+            </SendReply.Request>
+            <SendMessageContent DeclaredMessageType="mcd1:IMonitoredEventResponse">
+              <p1:InArgument x:TypeArguments="mcd1:IMonitoredEventResponse">
+                <mca:CSharpValue x:TypeArguments="mcd1:IMonitoredEventResponse">data</mca:CSharpValue>
+              </p1:InArgument>
+            </SendMessageContent>
+          </SendReply>
+        </p1:Sequence>
+      </p1:PickBranch>
+    </p1:Pick>
+    <sads:DebugSymbol.Symbol>dzRDOlxQcm9qZWN0c1xQcm90b3R5cGVzXE1vbml0b3JcTW9uaXRvci5IdWJcSHViLnhhbWx4GhADsQERAQE7BUYRATtHBa8BDwECQwtDYAE/Pgs+YgE8SAdsFwEpbQeuARcBA00LUhkBOVQJaxcBKnMLdRkBIXcJrQEXAQRjD2OzAQE6VQtgHQEwYQtqFwErjAEPpQEZASJ7C4kBHQEOigELrAEXAQVYEVhZATVdEV1gATFnEWdRASyiARWiAYIBASSRARmVASwBI4cBD4cBdAEbfhF+bgEVgwERgwFgAQ+pARGpAWYBBg==</sads:DebugSymbol.Symbol>
+  </p1:Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="768,62" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="277,210">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="InvokeMethod_2" sap:VirtualizedContainerService.HintSize="255,130" />
+      <sap2010:ViewStateData Id="Receive_1" sap:VirtualizedContainerService.HintSize="255,86" />
+      <sap2010:ViewStateData Id="SendReply_1" sap:VirtualizedContainerService.HintSize="255,86" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="277,380">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="PickBranch_1" sap:VirtualizedContainerService.HintSize="307,788" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="277,210">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="InvokeMethod_3" sap:VirtualizedContainerService.HintSize="255,130" />
+      <sap2010:ViewStateData Id="Receive_2" sap:VirtualizedContainerService.HintSize="255,86" />
+      <sap2010:ViewStateData Id="SendReply_2" sap:VirtualizedContainerService.HintSize="255,86" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="277,380">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="PickBranch_2" sap:VirtualizedContainerService.HintSize="307,788" />
+      <sap2010:ViewStateData Id="Pick_1" sap:VirtualizedContainerService.HintSize="768,834" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="790,1060">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WorkflowService_1" sap:VirtualizedContainerService.HintSize="820,1130" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</WorkflowService>

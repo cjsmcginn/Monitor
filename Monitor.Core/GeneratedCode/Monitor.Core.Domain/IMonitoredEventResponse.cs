@@ -4,26 +4,16 @@
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace Model.Core.Domain
+namespace Monitor.Core.Domain
 {
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
 
-	public class EventCategory
+	public interface IMonitoredEventResponse 
 	{
-		public virtual Guid Id
-		{
-			get;
-			set;
-		}
-
-		public virtual string Name
-		{
-			get;
-			set;
-		}
+		bool Success { get;set; }
 
 	}
 }

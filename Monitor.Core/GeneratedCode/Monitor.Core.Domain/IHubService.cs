@@ -11,8 +11,14 @@ namespace Monitor.Core.Domain
 	using System.Linq;
 	using System.Text;
 
-	public interface IMonitoredEvent 
+	public interface IHubService 
 	{
+		IEnumerable<IEventMonitor> EventMonitors { get;set; }
+
+		Guid GetMonitor();
+
+		IMonitoredEventResponse PostMonitoredEvent(IMonitoredEventRequest request);
+
 	}
 }
 

@@ -124,6 +124,12 @@
         LastKnownName="Model.Core.Domain"
         LastKnownLocation="Package1_0810.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="917e511b-a744-4698-b610-8652628b1ee4"
+        LastKnownName="Model.Hub"
+        LastKnownLocation="Package_0906.uml" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
