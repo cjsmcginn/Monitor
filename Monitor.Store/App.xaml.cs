@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Split App template is documented at http://go.microsoft.com/fwlink/?LinkId=234228
+using Monitor.Store.Data;
 
 namespace Monitor.Store
 {
@@ -43,6 +44,7 @@ namespace Monitor.Store
         /// <param name="e">Details about the launch request and process.</param>
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
+  
 
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)

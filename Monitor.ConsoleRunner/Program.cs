@@ -12,6 +12,7 @@ namespace Monitor.ConsoleRunner
         {
             Console.Out.Write("Starting Console Runner");
             EventPoster.PostWebsiteErrors();
+            EventPoster.PostPayments();
             Console.In.Read();
         }
     }

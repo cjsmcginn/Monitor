@@ -61,7 +61,16 @@ namespace Monitor.ConsoleRunner {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;279f6710-5aae-4d30-9b0a-8ecfb9a04421&quot;,&quot;Title&quot;:&quot;DB Timeout&quot;,&quot;EventCategory&quot;:{&quot;Id&quot;:&quot;039174d3-86f1-47c5-8baf-717b233119e1&quot;,&quot;Name&quot;:&quot;Website Error&quot;}},{&quot;Id&quot;:&quot;5336ca90-ad1d-4d00-b31b-64637b0dcf90&quot;,&quot;Title&quot;:&quot;DB Timeout&quot;,&quot;EventCategory&quot;:{&quot;Id&quot;:&quot;039174d3-86f1-47c5-8baf-717b233119e1&quot;,&quot;Name&quot;:&quot;Website Error&quot;}},{&quot;Id&quot;:&quot;f0c19aed-59d1-442a-a595-f3ce1e6321c7&quot;,&quot;Title&quot;:&quot;DB Timeout&quot;,&quot;EventCategory&quot;:{&quot;Id&quot;:&quot;039174d3-86f1-47c5-8baf-717b233119e1&quot;,&quot;Name&quot;:&quot;Website Error&quot;}},{&quot;Id&quot;:&quot;ba3900f3-dd7e-42de-b251-eff984702709&quot;,&quot;Title&quot;:&quot;D [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;354c35b0-dc25-4853-a4aa-77979d5bcf73&quot;,&quot;Title&quot;:&quot;Recurring&quot;,&quot;EventCategory&quot;:{&quot;Id&quot;:&quot;88d9e8ea-87fc-499b-9b9b-4503c306d0bb&quot;,&quot;Name&quot;:&quot;Payment&quot;}},{&quot;Id&quot;:&quot;aac23b84-420b-448b-a6c3-bb869acfa1bf&quot;,&quot;Title&quot;:&quot;Non-Recurring&quot;,&quot;EventCategory&quot;:{&quot;Id&quot;:&quot;88d9e8ea-87fc-499b-9b9b-4503c306d0bb&quot;,&quot;Name&quot;:&quot;Payment&quot;}},{&quot;Id&quot;:&quot;050075d6-c5af-487d-a978-c9d9ea8f929e&quot;,&quot;Title&quot;:&quot;Non-Recurring&quot;,&quot;EventCategory&quot;:{&quot;Id&quot;:&quot;88d9e8ea-87fc-499b-9b9b-4503c306d0bb&quot;,&quot;Name&quot;:&quot;Payment&quot;}},{&quot;Id&quot;:&quot;b698b350-6c4f-493b-b1a7-5b92f08834b8&quot;,&quot;Title&quot;:&quot;Recurring&quot;,&quot;Ev [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Payments {
+            get {
+                return ResourceManager.GetString("Payments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;c620d513-b070-40c4-a798-fec1edb284ed&quot;,&quot;Title&quot;:&quot;Authentication Failure&quot;,&quot;EventCategory&quot;:{&quot;Id&quot;:&quot;a267720d-4703-4de0-9f38-1b7770310114&quot;,&quot;Name&quot;:&quot;Website Error&quot;}},{&quot;Id&quot;:&quot;9dddbdc1-f0d8-44ea-99d5-f90a1ed8dff2&quot;,&quot;Title&quot;:&quot;Db Timeout&quot;,&quot;EventCategory&quot;:{&quot;Id&quot;:&quot;a267720d-4703-4de0-9f38-1b7770310114&quot;,&quot;Name&quot;:&quot;Website Error&quot;}},{&quot;Id&quot;:&quot;7dcbfc7c-0f9b-4efa-8ba0-245d198bf482&quot;,&quot;Title&quot;:&quot;Db Timeout&quot;,&quot;EventCategory&quot;:{&quot;Id&quot;:&quot;a267720d-4703-4de0-9f38-1b7770310114&quot;,&quot;Name&quot;:&quot;Website Error&quot;}},{&quot;Id&quot;:&quot;122d0d9b-07b9-4de0-9ea5-d608dfc1f270 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WebsiteErrors {
             get {

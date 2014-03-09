@@ -28,7 +28,7 @@ namespace Monitor.Store
     public sealed partial class ItemsPage : Page
     {
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        //private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
         /// <summary>
         /// NavigationHelper is used on each page to aid in navigation and 
@@ -42,14 +42,17 @@ namespace Monitor.Store
         /// <summary>
         /// This can be changed to a strongly typed view model.
         /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
-
+        //public ObservableDictionary DefaultViewModel
+        //{
+        //    get { return this.defaultViewModel; }
+        //}
+        private ItemsPageViewModel _viewModel;
         public ItemsPage()
         {
-           // this.DataContext = new ItemsPageViewModel();
+           _viewModel = new ItemsPageViewModel();
+           _viewModel.Dispatcher = this.Dispatcher;
+            this.DataContext = _viewModel;
+            
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
@@ -68,9 +71,10 @@ namespace Monitor.Store
         /// session.  The state will be null the first time a page is visited.</param>
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            await _viewModel.Initialize();
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var sampleDataGroups = await MonitorDataSource.GetGroupsAsync();
-            this.DefaultViewModel["Items"] = sampleDataGroups;
+            //var sampleDataGroups = await MonitorDataSource.GetGroupsAsync();
+            //this.DefaultViewModel["Items"] = sampleDataGroups;
         }
 
         /// <summary>
@@ -83,8 +87,8 @@ namespace Monitor.Store
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            var groupId = ((SampleDataGroup)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(SplitPage), groupId);
+            //var groupId = ((SampleDataGroup)e.ClickedItem).UniqueId;
+            //this.Frame.Navigate(typeof(SplitPage), groupId);
         }
 
         #region NavigationHelper registration

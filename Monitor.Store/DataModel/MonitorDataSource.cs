@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
+using Monitor.Store.Common;
 using Newtonsoft.Json;
+using Windows.UI.Xaml;
+using System.ComponentModel;
 
 namespace Monitor.Store.Data
 {
@@ -13,39 +16,76 @@ namespace Monitor.Store.Data
     {
         private static MonitorDataSource _monitorDataSource = new MonitorDataSource();
 
-        private static ObservableCollection<MonitoredCategory> _monitoredCategories =
-            new ObservableCollection<MonitoredCategory>();
+        private ObservableCollection<MonitoredCategory> _monitoredCategories = new ObservableCollection<MonitoredCategory>();
 
-        public static async Task<IEnumerable<MonitoredCategory>> GetGroupsAsync()
+        private async Task Initialize()
         {
-            await _monitorDataSource.LoadSampleData();
 
-            return _monitorDataSource.MonitoredCategories;
-        }
-        async Task LoadSampleData()
-        {
-            Uri dataUri = new Uri("ms-appx:///DataModel/SampleMonitoredEventsData.json");
-            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);
-            string jsonText = await FileIO.ReadTextAsync(file);
-            var deserialized = JsonConvert.DeserializeObject<MonitorDataSource>(jsonText);
-            _monitoredCategories = deserialized.MonitoredCategories;
-        }
-        public static void AddMonitoredCategory(MonitoredCategory category)
-        {
-            _monitoredCategories.Add(category);
         }
 
-        public ObservableCollection<MonitoredCategory> MonitoredCategories {
-            get { return _monitoredCategories; }
+
+
+        public static async Task AddBroadcastedCategory(Broadcast broadcast)
+        {
+            var mc = _monitorDataSource._monitoredCategories.SingleOrDefault(x => x.EventCategory.Name == broadcast.Message.EventCategory.Name);
+            if (mc == null)
+            {
+                mc = new MonitoredCategory();
+                mc.EventCategory = broadcast.Message.EventCategory;
+                mc.Id = Guid.NewGuid();
+                mc.MonitoredEvents = new ObservableCollection<MonitoredEvent>();
+                _monitorDataSource._monitoredCategories.Add(mc);
+            }
+            var me = mc.MonitoredEvents.SingleOrDefault(x => x.Title == broadcast.Message.Title);
+            if (me == null)
+            {
+                me = new MonitoredEvent { Title = broadcast.Message.Title, Id = Guid.NewGuid(), Count = 1 };
+                mc.MonitoredEvents.Add(me);
+            }
+            else
+            {
+                me.Count += 1;
+            }
         }
+        public static async Task<IEnumerable<MonitoredCategory>> GetMonitoredCategoriesAsync()
+        {
+            await _monitorDataSource.Initialize();
+            return _monitorDataSource._monitoredCategories;
+        }
+
+        public static ObservableCollection<MonitoredCategory> GetMonitoredCategories()
+        {
+            return _monitorDataSource._monitoredCategories;
+        }
+
     }
 
-    public class MonitoredEvent
+    public class MonitoredEvent:INotifyPropertyChanged
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
 
-        public int Count { get; set; }
+        private int _count;
+        public int Count {
+            get{return _count;}
+            set
+            {
+                if (_count != value)
+                {
+                    _count = value;
+                    OnPropertyChanged("Count");
+
+                }
+            }
+        }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged == null)
+                return;
+            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     public class EventCategory

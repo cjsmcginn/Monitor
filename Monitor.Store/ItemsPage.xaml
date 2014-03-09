@@ -1,7 +1,6 @@
 ﻿<Page
     x:Name="pageRoot"
     x:Class="Monitor.Store.ItemsPage"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Monitor.Store"
@@ -16,7 +15,7 @@
         <!-- Collection of items displayed by this page -->
         <CollectionViewSource
             x:Name="itemsViewSource"
-            Source="{Binding Items}"
+            Source="{Binding MonitoredCategories}"
             d:Source="{Binding MonitoredCategories, Source={d:DesignData Source=/DataModel/SampleMonitoredEventsData.json, Type=data:MonitorDataSource}}"/>
     </Page.Resources>
 
