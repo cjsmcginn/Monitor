@@ -1,0 +1,23 @@
+﻿<Application
+    x:Class="Monitor.Store.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:chart="using:De.TorstenMandelkow.MetroChart"
+    xmlns:local="using:Monitor.Store"
+    xmlns:localData="using:Monitor.Store.Data">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="MinimalChartStyle" TargetType="chart:ChartBase">
+                <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            </Style>
+            <x:String x:Key="AppName">Monitor.Store</x:String>
+        </ResourceDictionary>
+
+
+    </Application.Resources>
+</Application>
