@@ -20,7 +20,6 @@ namespace Monitor.Store.ViewModels
         {
             _receiver = new BroadcastReceiver();
             MonitoredCategories = MonitorDataSource.GetMonitoredCategories();
-            MonitoredCategories.CollectionChanged += MonitoredCategories_CollectionChanged;
             
         }
 
@@ -39,16 +38,6 @@ namespace Monitor.Store.ViewModels
             });
         }
 
-        public async Task LoadViewData()
-        {
-            var t = await MonitorDataSource.GetMonitoredCategoriesAsync();
-   
-        }
-
-        void MonitoredCategories_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            var x = "Y";
-        }
         public ObservableCollection<MonitoredCategory> MonitoredCategories { get; set; }
         public CoreDispatcher Dispatcher { get; set; }
     }

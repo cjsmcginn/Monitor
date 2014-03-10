@@ -18,14 +18,15 @@ namespace Monitor.Store.Data
 
         private ObservableCollection<MonitoredCategory> _monitoredCategories = new ObservableCollection<MonitoredCategory>();
         private ObservableCollection<MonitoredEvent> _monitoredEvents = new ObservableCollection<MonitoredEvent>();
-  
-        private async Task Initialize()
+
+        public ObservableCollection<MonitoredEvent> MonitoredEvents
         {
-
+            get { return this._monitoredEvents; }
         }
-
-
-
+        public ObservableCollection<MonitoredCategory> MonitoredCategories
+        {
+            get { return this._monitoredCategories; }
+        }
         public static async Task AddBroadcastedCategory(Broadcast broadcast)
         {
             var monitoredEvent = new MonitoredEvent
@@ -60,19 +61,25 @@ namespace Monitor.Store.Data
         }
         public static async Task<IEnumerable<MonitoredCategory>> GetMonitoredCategoriesAsync()
         {
-            await _monitorDataSource.Initialize();
+
             return _monitorDataSource._monitoredCategories;
         }
-
+        public static ObservableCollection<MonitoredCategory> GetMonitoredEventsByCategoryId()
+        {
+            return _monitorDataSource._monitoredCategories;
+        }
         public static ObservableCollection<MonitoredCategory> GetMonitoredCategories()
         {
             return _monitorDataSource._monitoredCategories;
         }
 
-        public static async Task<IEnumerable<MonitoredEvent>> GetMonitoredEventsByEventCategoryId(Guid eventCategoryId)
+        public static IEnumerable<MonitoredEvent> GetMonitoredEventsByEventCategoryId(Guid eventCategoryId)
         {
-            return _monitorDataSource._monitoredEvents.Where(x => x.EventCategory.Id == eventCategoryId);
+            return
+                new List<MonitoredEvent>(
+                    _monitorDataSource._monitoredEvents.Where(x => x.EventCategory.Id == eventCategoryId));
         }
+           
     }
 
     public class MonitoredCategoryEvent:INotifyPropertyChanged

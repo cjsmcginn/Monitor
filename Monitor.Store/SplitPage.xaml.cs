@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Split Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234234
+using Monitor.Store.ViewModels;
 
 namespace Monitor.Store
 {
@@ -27,7 +28,7 @@ namespace Monitor.Store
     public sealed partial class SplitPage : Page
     {
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        private SplitPageViewModel _viewModel;
 
         /// <summary>
         /// NavigationHelper is used on each page to aid in navigation and 
@@ -38,19 +39,14 @@ namespace Monitor.Store
             get { return this.navigationHelper; }
         }
 
-        /// <summary>
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
 
         public SplitPage()
         {
             this.InitializeComponent();
 
             // Setup the navigation helper
+            _viewModel = new SplitPageViewModel();
+            this.DataContext = _viewModel;
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
@@ -79,32 +75,8 @@ namespace Monitor.Store
         /// session.  The state will be null the first time a page is visited.</param>
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            var monitoredEvents =
-                await MonitorDataSource.GetMonitoredEventsByEventCategoryId((Guid) e.NavigationParameter);
-            var x = "Y";
-            //var group = await SampleDataSource.GetGroupAsync((String)e.NavigationParameter);
-            //this.DefaultViewModel["Group"] = group;
-            //this.DefaultViewModel["Items"] = group.Items;
+            _viewModel.LoadViewData((Guid) e.NavigationParameter);
 
-            //if (e.PageState == null)
-            //{
-            //    this.itemListView.SelectedItem = null;
-            //    // When this is a new page, select the first item automatically unless logical page
-            //    // navigation is being used (see the logical page navigation #region below.)
-            //    if (!this.UsingLogicalPageNavigation() && this.itemsViewSource.View != null)
-            //    {
-            //        this.itemsViewSource.View.MoveCurrentToFirst();
-            //    }
-            //}
-            //else
-            //{
-            //    // Restore the previously saved state associated with this page
-            //    if (e.PageState.ContainsKey("SelectedItem") && this.itemsViewSource.View != null)
-            //    {
-            //        var selectedItem = await SampleDataSource.GetItemAsync((String)e.PageState["SelectedItem"]);
-            //        this.itemsViewSource.View.MoveCurrentTo(selectedItem);
-            //    }
-            //}
         }
 
         /// <summary>
@@ -122,8 +94,8 @@ namespace Monitor.Store
         {
             if (this.itemsViewSource.View != null)
             {
-                var selectedItem = (Data.SampleDataItem)this.itemsViewSource.View.CurrentItem;
-                if (selectedItem != null) e.PageState["SelectedItem"] = selectedItem.UniqueId;
+                var selectedItem = (MonitoredEvent)this.itemsViewSource.View.CurrentItem;
+                if (selectedItem != null) e.PageState["SelectedItem"] = selectedItem.Id;
             }
         }
 
