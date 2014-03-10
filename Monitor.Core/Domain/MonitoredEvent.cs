@@ -17,5 +17,11 @@ namespace Monitor.Core.Domain
         public string Title { get; set; }
         [DataMember]
         public EventCategory EventCategory { get; set; }
+
+        [DataMember]
+        public string Content { get; set; }
+
+        [DataMember]
+        public DateTime DateTimeUtc { get; set; }
     }
 }

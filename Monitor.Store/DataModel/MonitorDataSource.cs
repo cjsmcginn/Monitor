@@ -17,7 +17,8 @@ namespace Monitor.Store.Data
         private static MonitorDataSource _monitorDataSource = new MonitorDataSource();
 
         private ObservableCollection<MonitoredCategory> _monitoredCategories = new ObservableCollection<MonitoredCategory>();
-
+        private ObservableCollection<MonitoredEvent> _monitoredEvents = new ObservableCollection<MonitoredEvent>();
+  
         private async Task Initialize()
         {
 
@@ -27,20 +28,30 @@ namespace Monitor.Store.Data
 
         public static async Task AddBroadcastedCategory(Broadcast broadcast)
         {
+            var monitoredEvent = new MonitoredEvent
+            {
+                Id = broadcast.Message.Id,
+                Title = broadcast.Message.Title,
+                Content = broadcast.Message.Content,
+                DateTimeUtc = broadcast.Message.DateTimeUtc,
+                EventCategory = broadcast.Message.EventCategory
+            };
+            _monitorDataSource._monitoredEvents.Add(monitoredEvent);
+
             var mc = _monitorDataSource._monitoredCategories.SingleOrDefault(x => x.EventCategory.Name == broadcast.Message.EventCategory.Name);
             if (mc == null)
             {
                 mc = new MonitoredCategory();
                 mc.EventCategory = broadcast.Message.EventCategory;
                 mc.Id = Guid.NewGuid();
-                mc.MonitoredEvents = new ObservableCollection<MonitoredEvent>();
+                mc.MonitoredCategoryEvents = new ObservableCollection<MonitoredCategoryEvent>();
                 _monitorDataSource._monitoredCategories.Add(mc);
             }
-            var me = mc.MonitoredEvents.SingleOrDefault(x => x.Title == broadcast.Message.Title);
+            var me = mc.MonitoredCategoryEvents.SingleOrDefault(x => x.Title == broadcast.Message.Title);
             if (me == null)
             {
-                me = new MonitoredEvent { Title = broadcast.Message.Title, Id = Guid.NewGuid(), Count = 1 };
-                mc.MonitoredEvents.Add(me);
+                me = new MonitoredCategoryEvent { Title = broadcast.Message.Title, Id = Guid.NewGuid(), Count = 1 };
+                mc.MonitoredCategoryEvents.Add(me);
             }
             else
             {
@@ -58,9 +69,13 @@ namespace Monitor.Store.Data
             return _monitorDataSource._monitoredCategories;
         }
 
+        public static async Task<IEnumerable<MonitoredEvent>> GetMonitoredEventsByEventCategoryId(Guid eventCategoryId)
+        {
+            return _monitorDataSource._monitoredEvents.Where(x => x.EventCategory.Id == eventCategoryId);
+        }
     }
 
-    public class MonitoredEvent:INotifyPropertyChanged
+    public class MonitoredCategoryEvent:INotifyPropertyChanged
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
@@ -99,8 +114,17 @@ namespace Monitor.Store.Data
         public Guid Id { get; set; }
         public EventCategory EventCategory { get; set; }
 
-        public ObservableCollection<MonitoredEvent> MonitoredEvents { get; set; }
+        public ObservableCollection<MonitoredCategoryEvent> MonitoredCategoryEvents { get; set; }
 
 
+    }
+
+    public class MonitoredEvent
+    {
+        public Guid Id { get; set; }
+        public EventCategory EventCategory { get; set; }
+        public DateTime DateTimeUtc { get; set; }
+        public string Content { get; set; }
+        public string Title { get; set; }
     }
 }

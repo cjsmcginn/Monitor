@@ -11,6 +11,10 @@ namespace Monitor.Store.Common
         public Guid Id{get;set;}
         public EventCategory EventCategory{get;set;}
         public string Title{get;set;}
+
+        public DateTime DateTimeUtc { get; set; }
+
+        public string Content { get; set; }
     }
     public class Broadcast
     {

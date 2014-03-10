@@ -17,6 +17,10 @@ namespace Monitor.Core.Domain
 
 		string Title { get;set; }
 
+		DateTime DateTimeUtc { get;set; }
+
+		string Content { get;set; }
+
 		EventCategory EventCategory { get;set; }
 
 	}

@@ -79,29 +79,32 @@ namespace Monitor.Store
         /// session.  The state will be null the first time a page is visited.</param>
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            var group = await SampleDataSource.GetGroupAsync((String)e.NavigationParameter);
-            this.DefaultViewModel["Group"] = group;
-            this.DefaultViewModel["Items"] = group.Items;
+            var monitoredEvents =
+                await MonitorDataSource.GetMonitoredEventsByEventCategoryId((Guid) e.NavigationParameter);
+            var x = "Y";
+            //var group = await SampleDataSource.GetGroupAsync((String)e.NavigationParameter);
+            //this.DefaultViewModel["Group"] = group;
+            //this.DefaultViewModel["Items"] = group.Items;
 
-            if (e.PageState == null)
-            {
-                this.itemListView.SelectedItem = null;
-                // When this is a new page, select the first item automatically unless logical page
-                // navigation is being used (see the logical page navigation #region below.)
-                if (!this.UsingLogicalPageNavigation() && this.itemsViewSource.View != null)
-                {
-                    this.itemsViewSource.View.MoveCurrentToFirst();
-                }
-            }
-            else
-            {
-                // Restore the previously saved state associated with this page
-                if (e.PageState.ContainsKey("SelectedItem") && this.itemsViewSource.View != null)
-                {
-                    var selectedItem = await SampleDataSource.GetItemAsync((String)e.PageState["SelectedItem"]);
-                    this.itemsViewSource.View.MoveCurrentTo(selectedItem);
-                }
-            }
+            //if (e.PageState == null)
+            //{
+            //    this.itemListView.SelectedItem = null;
+            //    // When this is a new page, select the first item automatically unless logical page
+            //    // navigation is being used (see the logical page navigation #region below.)
+            //    if (!this.UsingLogicalPageNavigation() && this.itemsViewSource.View != null)
+            //    {
+            //        this.itemsViewSource.View.MoveCurrentToFirst();
+            //    }
+            //}
+            //else
+            //{
+            //    // Restore the previously saved state associated with this page
+            //    if (e.PageState.ContainsKey("SelectedItem") && this.itemsViewSource.View != null)
+            //    {
+            //        var selectedItem = await SampleDataSource.GetItemAsync((String)e.PageState["SelectedItem"]);
+            //        this.itemsViewSource.View.MoveCurrentTo(selectedItem);
+            //    }
+            //}
         }
 
         /// <summary>

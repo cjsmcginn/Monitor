@@ -29,7 +29,7 @@ namespace Monitor.ConsoleRunner
             t.Interval = 3000;
             t.Elapsed += (sender, e) =>
             {
-                if (counter > data.Count())
+                if (counter >= data.Count())
                     counter = 0;
                 var monitoredEvent = data.ElementAt(counter);
                 var request = new Hub.PostMonitoredEvent();
@@ -59,7 +59,7 @@ namespace Monitor.ConsoleRunner
             t.Interval = 8000;
             t.Elapsed += (sender, e) =>
             {
-                if (counter > data.Count())
+                if (counter >= data.Count())
                     counter = 0;
                 var monitoredEvent = data.ElementAt(counter);
                 var request = new Hub.PostMonitoredEvent();

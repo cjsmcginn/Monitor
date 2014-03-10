@@ -49,13 +49,16 @@ namespace Monitor.Store
         private ItemsPageViewModel _viewModel;
         public ItemsPage()
         {
+
            _viewModel = new ItemsPageViewModel();
            _viewModel.Dispatcher = this.Dispatcher;
-            this.DataContext = _viewModel;
             
+            this.DataContext = _viewModel;
+         
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
+        
         }
 
         /// <summary>
@@ -73,8 +76,8 @@ namespace Monitor.Store
         {
             await _viewModel.Initialize();
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            //var sampleDataGroups = await MonitorDataSource.GetGroupsAsync();
-            //this.DefaultViewModel["Items"] = sampleDataGroups;
+            //var sampleDataGroups = await SampleDataSource.GetGroupsAsync();
+           //this.DefaultViewModel["Items"] = sampleDataGroups;
         }
 
         /// <summary>
@@ -87,8 +90,8 @@ namespace Monitor.Store
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            //var groupId = ((SampleDataGroup)e.ClickedItem).UniqueId;
-            //this.Frame.Navigate(typeof(SplitPage), groupId);
+            var categoryId = ((MonitoredCategory) e.ClickedItem).EventCategory.Id;
+            this.Frame.Navigate(typeof(SplitPage), categoryId);
         }
 
         #region NavigationHelper registration
