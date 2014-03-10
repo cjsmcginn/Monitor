@@ -131,6 +131,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Config\ServerConfig.txt" />
     <None Include="Common\ReadMe.txt" />
     <Content Include="DataModel\SampleMonitoredEventsData.json" />
     <None Include="Monitor.Store_TemporaryKey.pfx" />

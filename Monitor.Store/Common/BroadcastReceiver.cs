@@ -3,19 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 using Microsoft.AspNet.SignalR.Client;
 
 namespace Monitor.Store.Common
 {
+    /// <summary>
+    /// Receives broadcasts from a Signalr hub
+    /// </summary>
     public class BroadcastReceiver
     {
         public event BoadcastReceivedHandler BroadcastReceived;
         public delegate void BoadcastReceivedHandler(object sender, BroadcastReceivedEventArgs e);
-
+        /// <summary>
+        /// Create, connect to hub, and assign callback to handle broadcasts
+        /// </summary>
+        /// <returns></returns>
         public async Task  Initialize()
         {
-            var url = "http://localhost:2882";
-            var hubConnection = new HubConnection(url);
+            var dataUri = new Uri("ms-appx:///Config/ServerConfig.txt");
+            var file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);
+            var url = await FileIO.ReadTextAsync(file);
+            var hubConnection = new HubConnection(url.Trim());
             var hubProxy = hubConnection.CreateHubProxy("MessageHub");
             hubProxy.On<string, string>("broadcastMessage", (name, message) =>
             {

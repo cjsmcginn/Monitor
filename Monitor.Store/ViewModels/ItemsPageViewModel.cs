@@ -28,14 +28,15 @@ namespace Monitor.Store.ViewModels
             await _receiver.Initialize();
             _receiver.BroadcastReceived += _receiver_BroadcastReceived;
         }
-
+        /// <summary>
+        /// Calls datasource add to collection method on the UI thread
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void _receiver_BroadcastReceived(object sender, BroadcastReceivedEventArgs e)
         {
             
-           Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
-            {
-                MonitorDataSource.AddBroadcastedCategory(e.Broadcast);
-            });
+           Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () => MonitorDataSource.AddBroadcastedCategory(e.Broadcast));
         }
 
         public ObservableCollection<MonitoredCategory> MonitoredCategories { get; set; }

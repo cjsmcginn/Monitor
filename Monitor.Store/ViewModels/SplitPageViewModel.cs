@@ -15,6 +15,8 @@ namespace Monitor.Store.ViewModels
         {
             MonitoredEvents = new ObservableCollection<MonitoredEvent>();
         }
+        /// <see cref="MonitorDataSource.GetMonitoredEventsByEventCategoryId"/>
+        /// <param name="eventCategoryId"></param>
         public void LoadViewData(Guid eventCategoryId)
         {
             foreach (var item in MonitorDataSource.GetMonitoredEventsByEventCategoryId(eventCategoryId))

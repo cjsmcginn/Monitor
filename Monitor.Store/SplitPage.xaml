@@ -61,12 +61,11 @@
             AutomationProperties.AutomationId="ItemsListView"
             AutomationProperties.Name="Items"
             TabIndex="1"
-            Grid.Row="1"
-            Margin="-10,-10,0,0"
+            Margin="-10,130,39,0"
             Padding="120,0,0,60"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             IsSwipeEnabled="False"
-            SelectionChanged="ItemListView_SelectionChanged">
+            SelectionChanged="ItemListView_SelectionChanged" Grid.RowSpan="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="6">

@@ -28,8 +28,6 @@ namespace Monitor.Store
     public sealed partial class ItemsPage : Page
     {
         private NavigationHelper navigationHelper;
-        //private ObservableDictionary defaultViewModel = new ObservableDictionary();
-
         /// <summary>
         /// NavigationHelper is used on each page to aid in navigation and 
         /// process lifetime management
@@ -39,13 +37,7 @@ namespace Monitor.Store
             get { return this.navigationHelper; }
         }
 
-        /// <summary>
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        //public ObservableDictionary DefaultViewModel
-        //{
-        //    get { return this.defaultViewModel; }
-        //}
+
         private ItemsPageViewModel _viewModel;
         public ItemsPage()
         {
@@ -75,9 +67,7 @@ namespace Monitor.Store
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             await _viewModel.Initialize();
-            // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            //var sampleDataGroups = await SampleDataSource.GetGroupsAsync();
-           //this.DefaultViewModel["Items"] = sampleDataGroups;
+
         }
 
         /// <summary>
