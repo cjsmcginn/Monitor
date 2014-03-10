@@ -7,6 +7,10 @@ using System.Web;
 
 namespace Monitor.Core.Domain
 {
+    /// <summary>
+    /// This is the request sent to the WCF service to publish an event
+    /// </summary>
+    /// <seealso cref="MonitoredEventResponse"/>
    [DataContract]
     public class MonitoredEventRequest:IMonitoredEventRequest
     {

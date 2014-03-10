@@ -14,7 +14,7 @@ namespace Monitor.Hub
         protected void Application_Start(object sender, EventArgs e)
         {
             Broadcaster.InitializeHub();
-            //create single hub service
+            //create single hub service (mimic a single instance service)
             var s = ServiceFactory.GetHubService();
         }
 

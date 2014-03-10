@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace Monitor.Core.Domain
 {
+    /// <summary>
+    /// The heart of the application, these are the events that can be monitored
+    /// they are categorized and are somewhat generic in structure as not to limit them to
+    /// errors (like logging applications)
+    /// </summary>
     [DataContract]
     public class MonitoredEvent : IMonitoredEvent
     {

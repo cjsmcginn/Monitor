@@ -6,6 +6,10 @@ using System.Web;
 
 namespace Monitor.Core.Domain
 {
+    /// <summary>
+    /// The event monitor is responsible for identifying itself so it can be called upon
+    /// as well as managing the events it is monitoring.
+    /// </summary>
     public class EventMonitor:IEventMonitor
     {
         public Guid Id { get; set; }

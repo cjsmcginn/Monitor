@@ -9,7 +9,12 @@ namespace Monitor.SystemTests
     [TestClass]
     public class BroadcastTests
     {
-
+        /// <summary>
+        /// This is basically a system level test that also exemplifies how we create a hub connection
+        /// for clients listening for broadcasts
+        /// how we send a broadcast via the WCF service, and what happens.
+        /// This is a one stop shop example of the communication between servers and clients involved in the demo.
+        /// </summary>
         [TestMethod]
         public async void BroadcastReceiveTest()
         {

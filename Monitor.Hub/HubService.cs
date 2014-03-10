@@ -8,13 +8,25 @@ namespace Monitor.Hub
 {
     public class HubService:IHubService
     {
+        /// <summary>
+        /// Each application that wishes to communicate with a monitoring instance
+        /// calls this method to get an Id. In a non-demo application, this would likely be handled
+        /// by a correlation id to support durability.
+        /// </summary>
+        /// <returns></returns>
         public Guid GetMonitor()
         {
             var monitor = new EventMonitor {Id = Guid.NewGuid()};
             EventMonitors.Add(monitor);
             return monitor.Id;
         }
-
+        /// <summary>
+        /// This is the meat and potatoes of the demo, clients posting events call this method
+        /// the event eventually gets broadcast on the signalr hub via the Broadcaster
+        /// </summary>
+        /// <see cref="Broadcaster.PushMessage"/>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public IMonitoredEventResponse PostMonitoredEvent(IMonitoredEventRequest request)
         {
             var response = new MonitoredEventResponse();
