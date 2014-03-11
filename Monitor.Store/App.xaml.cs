@@ -27,6 +27,9 @@ namespace Monitor.Store
     /// </summary>
     sealed partial class App : Application
     {
+        //used to know when we can call dispose.
+        private static bool _IsAppSuspending;
+        public static bool IsAppSuspending { get { return _IsAppSuspending; } }
         /// <summary>
         /// Initializes the singleton Application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -44,8 +47,8 @@ namespace Monitor.Store
         /// <param name="e">Details about the launch request and process.</param>
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
-  
 
+            _IsAppSuspending = false;
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
@@ -116,6 +119,7 @@ namespace Monitor.Store
         /// <param name="e">Details about the suspend request.</param>
         private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
+            _IsAppSuspending = true;
             var deferral = e.SuspendingOperation.GetDeferral();
             await SuspensionManager.SaveAsync();
             deferral.Complete();

@@ -1,4 +1,5 @@
-﻿using Monitor.Store.Common;
+﻿using System.Threading.Tasks;
+using Monitor.Store.Common;
 using Monitor.Store.Data;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,8 @@ namespace Monitor.Store
            _viewModel.Dispatcher = this.Dispatcher;
             
             this.DataContext = _viewModel;
-         
+
+   
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
@@ -66,7 +68,7 @@ namespace Monitor.Store
         /// session.  The state will be null the first time a page is visited.</param>
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            await _viewModel.Initialize();
+          
 
         }
 
@@ -97,11 +99,15 @@ namespace Monitor.Store
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            
             navigationHelper.OnNavigatedTo(e);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
+            if (!App.IsAppSuspending)
+                _viewModel.Dispose();
+      
             navigationHelper.OnNavigatedFrom(e);
         }
 

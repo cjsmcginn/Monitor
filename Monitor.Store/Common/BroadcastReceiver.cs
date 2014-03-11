@@ -13,6 +13,24 @@ namespace Monitor.Store.Common
     /// </summary>
     public class BroadcastReceiver
     {
+        private static BroadcastReceiver _instance;
+       
+        public static BroadcastReceiver GetBroadcastReceiver()
+        {
+            if (_instance == null)
+            {
+                _instance = new BroadcastReceiver();
+                _instance.Initialize();
+            }
+            return _instance;
+        }
+        private BroadcastReceiver()
+        {
+     
+        }
+
+
+
         public event BoadcastReceivedHandler BroadcastReceived;
         public delegate void BoadcastReceivedHandler(object sender, BroadcastReceivedEventArgs e);
         /// <summary>

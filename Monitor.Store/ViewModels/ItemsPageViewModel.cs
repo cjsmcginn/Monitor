@@ -13,21 +13,17 @@ using Windows.UI.Core;
 
 namespace Monitor.Store.ViewModels
 {
-    public class ItemsPageViewModel
+    public class ItemsPageViewModel:IDisposable
     {
-        BroadcastReceiver _receiver;
+        bool disposed = false;
+        readonly BroadcastReceiver _receiver;
         public ItemsPageViewModel()
         {
-            _receiver = new BroadcastReceiver();
+            _receiver = BroadcastReceiver.GetBroadcastReceiver();
             MonitoredCategories = MonitorDataSource.GetMonitoredCategories();
-            
+             _receiver.BroadcastReceived += _receiver_BroadcastReceived;
         }
 
-        public async Task Initialize()
-        {
-            await _receiver.Initialize();
-            _receiver.BroadcastReceived += _receiver_BroadcastReceived;
-        }
         /// <summary>
         /// Calls datasource add to collection method on the UI thread
         /// </summary>
@@ -41,5 +37,22 @@ namespace Monitor.Store.ViewModels
 
         public ObservableCollection<MonitoredCategory> MonitoredCategories { get; set; }
         public CoreDispatcher Dispatcher { get; set; }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);  
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+            if (disposing)
+            {
+                _receiver.BroadcastReceived -= _receiver_BroadcastReceived;
+            }
+            disposed = true;
+        }
     }
 }

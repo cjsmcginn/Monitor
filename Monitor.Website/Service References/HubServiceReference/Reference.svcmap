@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b93fd968-f97c-4cf4-a6a6-3ffc5c4c2b84" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1385/Hub.xamlx" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Hub.xsd" MetadataType="Schema" ID="579f4d31-f9e6-41f0-b42d-189d4f716304" SourceId="1" SourceUrl="http://localhost:1385/Hub.xamlx?xsd=xsd1" />
+    <MetadataFile FileName="Hub1.xsd" MetadataType="Schema" ID="715b1350-8adb-4c51-9330-8b40d895db40" SourceId="1" SourceUrl="http://localhost:1385/Hub.xamlx?xsd=xsd2" />
+    <MetadataFile FileName="Hub2.xsd" MetadataType="Schema" ID="fb85463b-69cb-4d6f-9018-7da42ac5650d" SourceId="1" SourceUrl="http://localhost:1385/Hub.xamlx?xsd=xsd0" />
+    <MetadataFile FileName="Hub.wsdl" MetadataType="Wsdl" ID="86c6876c-a859-4206-9277-ed087ff8e5b6" SourceId="1" SourceUrl="http://localhost:1385/Hub.xamlx?wsdl" />
+    <MetadataFile FileName="Hub.disco" MetadataType="Disco" ID="ccf15daf-fda5-419e-be0d-de38b18c23ba" SourceId="1" SourceUrl="http://localhost:1385/Hub.xamlx?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
